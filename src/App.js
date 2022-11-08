@@ -6,7 +6,7 @@ import Header from './Pages/Shared/Header/Header';
 
 function App() {
   return (
-    <div>
+    <div className='max-w-screen-lg mx-auto'>
       <RouterProvider router={router}></RouterProvider>
      
     </div>
