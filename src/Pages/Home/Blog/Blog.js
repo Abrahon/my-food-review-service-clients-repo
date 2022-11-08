@@ -23,7 +23,10 @@ const Blog = () => {
                         JavaScript follows the standard of JavaScript when writing programs whereas Node.js is written in C++ while using the v8 engine, it runs JavaScript outside the browser.
                  JavaScript requires any running environment as it can execute on any engine such as Firefox’s spider monkey, v8 engine of google chrome, JavaScript core of Safari whereas Node.js runs only on the v8 engine of google chrome</p>
             </div>
-            
+            <div>
+                <h1 className='text-3xl font-bold text-orange-600 m-5'>How does NodeJS handle multiple requests at the same time?</h1>
+                <p>How NodeJS handle multiple client requests? NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them.</p>
+            </div>
            
         </div>
     )
