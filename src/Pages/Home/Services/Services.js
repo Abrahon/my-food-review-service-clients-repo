@@ -14,15 +14,15 @@ const Services = () => {
         setServices(services + services);
 
     }
-    
+
     useEffect(()=>{
-        fetch('services.json')
+        fetch('http://localhost:5000/services')
         .then(res=>res.json())
         .then(data=>setServices(data))
 
     }, [])
     return (
-      <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+      <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-20'>
         {
             slice.map(service=><ServicesCard
             key={service._id}

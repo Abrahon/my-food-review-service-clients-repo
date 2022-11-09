@@ -28,7 +28,7 @@ const Header = () => {
 
     return (
 
-        <div className="">
+        <div className="p-5">
          <div className="navbar bg-primary text-primary-content navbar h-20 mb-12 pt-12 bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -47,9 +47,7 @@ const Header = () => {
            {menuItems}
           </ul>
         </div>
-        <div className="navbar-end">
-        <button className="btn btn-outline btn-warning">Food review</button>
-        </div>
+        
       </div>
 
 
