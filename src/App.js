@@ -6,7 +6,7 @@ import Header from './Pages/Shared/Header/Header';
 
 function App() {
   return (
-    <div className='max-w-screen-lg mx-auto'>
+    <div className='p-5'>
       <RouterProvider router={router}></RouterProvider>
      
     </div>
@@ -14,3 +14,4 @@ function App() {
 }
 
 export default App;
+// max-w-screen-lg mx-auto

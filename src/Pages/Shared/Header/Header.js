@@ -13,16 +13,34 @@ const Header = () => {
      }
 
     
-    const menuItems = <>
+    const menuItems =
+    <>
+       <div className='flex justify-between'>
+      <div>
+      <h1 className='text-3xl font-bold text-orange-600 grid mr-20'>My luxurious kitchen</h1>
+
+
+      </div>
+    
     <li className='font-semibold'><Link to='/'>Home</Link></li>
     <li className='font-semibold'><Link to='/footer'>Footer</Link></li>
     <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
+    <li className='font-semibold'><Link to='/services'>Services</Link></li>
+
+    {
+      user?.email ?
+      <>
+     <li className='font-semibold'><Link to='/reviews'>Reviews</Link></li>
+
+      </>
+      :
     <li className='font-semibold'><Link to='/login'>Login</Link></li>
+    }
     <li className='font-semibold'><Link to='/signup'>SignUp</Link></li>
     {user?.email && <span>Welcome, {user.email}</span>}
     <button onClick={handleSignOut} className='btn btn-sm'>Log out</button>
-
-    
+  
+    </div>
      </> 
       
 

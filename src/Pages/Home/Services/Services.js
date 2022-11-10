@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import ServicesCard from './ServicesCard';
 
@@ -8,12 +9,12 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
 
-    const slice = services.slice(0,3);
+     const slice = services.slice(0,6);
 
-    const handleButton = ()=>{
-        setServices(services + services);
+    // const handleButton = ()=>{
+    //     setServices(services + services);
 
-    }
+    // }
 
     useEffect(()=>{
         fetch('http://localhost:5000/services')
@@ -32,7 +33,7 @@ const Services = () => {
         }
 
         <div className='max-w-screen-lg mx-auto '>
-       <button onClick={handleButton} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg text-center">See More</button>
+       <Link className='btn btn-xs sm:btn-sm md:btn-md lg:btn-lg text-center' to='/services'>Services</Link>
 
         </div>
 
