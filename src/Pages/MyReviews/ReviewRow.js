@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const ReviewRow = ({review}) => {
-    const {serviceName, message,service} = review;
-    const [myReviewsService, setMyReviewsService] = useState({})
+const ReviewRow = ({review, handleDelete, handleStatusUpdate}) => {
+    const {_id, serviceName, message,service,status} = review;
+    const [myReviewsService, setMyReviewsService] = useState([])
 
 
 
@@ -12,11 +13,13 @@ const ReviewRow = ({review}) => {
         .then(data=>setMyReviewsService(data));
 
     }, [service])
+
+  
     return (
         <tr>
             <th>
                 <label>
-                    <button className='btn btn-ghost'>X</button>
+                    <button onClick={()=>handleDelete(_id)} className='btn btn-ghost'>X</button>
                 </label>
             </th>
             <td>
@@ -39,7 +42,13 @@ const ReviewRow = ({review}) => {
                 {message}
             </td>
             <th>
-                <button className="btn btn-ghost btn-xs">Edit</button>
+                <Link to='/login'>
+                <button
+                onClick={()=> handleStatusUpdate(_id)}
+                className="btn btn-ghost btn-xs">{status ? status: 'edit review'}
+                </button>
+                </Link>
+                
             </th>
         </tr>
     );

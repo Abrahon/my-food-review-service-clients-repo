@@ -1,31 +1,19 @@
-import React from 'react'
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import React from 'react';
 
-const containerStyle = {
-  width: '400px',
-  height: '400px'
-};
-
-const center = {
-  lat: -3.745,
-  lng: -38.523
-};
-
-function MyComponent() {
+const Contact = () => {
   return (
-    <LoadScript
-      googleMapsApiKey="YOUR_API_KEY"
-    >
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-      >
-        { /* Child components, such as markers, info windows, etc. */ }
-        <></>
-      </GoogleMap>
-    </LoadScript>
-  )
-}
+    <div>
+       <div classNam='w-full text-center mx-auto'>
+             <input type="text" placeholder="Type here" className="input input-bordered input-error w-full mx-auto" />
+           <div className='m-5'>
+           <button className="btn btn-outline btn-warning">Subscribe</button>
+           </div>
+           {/* <!-- You can actually customize padding on a select element: --> */}
 
-export default React.memo(MyComponent)
+        </div>
+     </div>
+    
+  );
+};
+
+export default Contact;

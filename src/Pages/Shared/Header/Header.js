@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import img from './favicon.png'
 
 const Header = () => {
 
@@ -15,32 +16,38 @@ const Header = () => {
     
     const menuItems =
     <>
-       <div className='flex justify-between'>
+      <div className='flex justify-between '>
+        <img className='w-15 h-10 rounded p-1' src={img} alt="" />
       <div>
-      <h1 className='text-3xl font-bold text-orange-600 grid mr-20'>My luxurious kitchen</h1>
-
+      <h1 className='text-3xl font-bold text-orange-600 mr-20 justify-start'>My luxurious kitchen</h1>
 
       </div>
+       </div>
     
     <li className='font-semibold'><Link to='/'>Home</Link></li>
-    <li className='font-semibold'><Link to='/footer'>Footer</Link></li>
+    {/* <li className='font-semibold'><Link to='/footer'>Footer</Link></li> */}
+
     <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
     <li className='font-semibold'><Link to='/services'>Services</Link></li>
+    {/* <li className='font-semibold'><Link to='/servicesDetails'>AddReview</Link></li> */}
+
 
     {
       user?.email ?
       <>
-     <li className='font-semibold'><Link to='/reviews'>Reviews</Link></li>
+     <li className='font-semibold'><Link to='/myReviews'>myReviews</Link></li>
+
 
       </>
       :
     <li className='font-semibold'><Link to='/login'>Login</Link></li>
     }
     <li className='font-semibold'><Link to='/signup'>SignUp</Link></li>
+
     {user?.email && <span>Welcome, {user.email}</span>}
     <button onClick={handleSignOut} className='btn btn-sm'>Log out</button>
   
-    </div>
+   
      </> 
       
 

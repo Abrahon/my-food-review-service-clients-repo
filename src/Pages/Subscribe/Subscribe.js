@@ -1,12 +1,18 @@
 import React from 'react';
+import img from './special.jpg';
 
 const Subscribe = () => {
     return (
-        <div className='w-full h-25 text-center'>
-             <input type="text" placeholder="Type here" className="input input-bordered input-error w-full max-w-xs" />
-           <div className='m-5'>
-           <button className="btn btn-outline btn-warning">Subscribe</button>
-           </div>
+        <div>
+            <h2 className='text-2xl font-bold text-teal-600 text-center'>Special food Its  50% discount for every friday</h2>
+       
+        <div className='rounded'>
+            <img className='w-full rounded-lg mx-auto p-8' src={img} alt="" />
+  
+        </div>
+       
+
+
         </div>
     );
 };
