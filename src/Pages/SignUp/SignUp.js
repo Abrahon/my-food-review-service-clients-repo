@@ -1,11 +1,14 @@
 import { } from '@firebase/util';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const SignUp = () => {
 
     const {createUser,signInWithGoogle} = useContext(AuthContext);
+    const navigate = useNavigate();
 
 
 
@@ -21,7 +24,10 @@ const SignUp = () => {
         .then(result=>{
             const user = result.user;
             console.log('signup user',user);
+            toast.success('signup successfully');
+            navigate('/')
             form.reset();
+            
         })
 
         .catch(err=>console.error(err));
@@ -32,7 +38,9 @@ const SignUp = () => {
         signInWithGoogle()
         .then(result=>{
             const user = result.user;
-            console.log(user)
+            console.log(user);
+            toast.success('signup success fully with google');
+            navigate('/')
         })
         .catch(error=>{
             console.log(error);
@@ -41,12 +49,12 @@ const SignUp = () => {
     }
     return (
         <div className="hero w-full my-20">
-        <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
+        <div className="">
           
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-15">
+          <div className="card flex-shrink-0 w-full  shadow-2xl">
             <h1 className="text-5xl text-center font-bold">Sign Up</h1>
       
-            <form onSubmit={handleSignUp}className="card-body">
+            <form onSubmit={handleSignUp}className="card-body w-96">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -68,7 +76,7 @@ const SignUp = () => {
                   <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                 </label>
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control mt-4">
                   <input className='btn btn-primary' type="submit" value="Sign Up" />
               </div>
             </form>

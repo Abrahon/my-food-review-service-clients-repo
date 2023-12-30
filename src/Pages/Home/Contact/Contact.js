@@ -8,7 +8,6 @@ const Contact = () => {
            <div className='m-5'>
            <button className="btn btn-outline btn-warning">Subscribe</button>
            </div>
-           {/* <!-- You can actually customize padding on a select element: --> */}
 
         </div>
      </div>

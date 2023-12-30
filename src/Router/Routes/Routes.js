@@ -1,11 +1,11 @@
 import Main from "../../Layout/Main";
-import Checkout from "../../Pages/Checkout/Checkout";
 import Error from "../../Pages/Error/Error";
 // import Error from "../../Pages/Error/Error";
 import Blog from "../../Pages/Home/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import Services from "../../Pages/Home/Services/Services";
 import Login from "../../Pages/Login/Login";
+import Edit from "../../Pages/MyReviews/Edit";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import ServicesDetails from "../../Pages/ServicesDetails/ServicesDetails";
 import Footer from "../../Pages/Shared/Footer/Footer";
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader: () => fetch('http://localhost:5000/services-limit')
+                loader: () => fetch('https://y-ochre-five.vercel.app/services-limit')
             },
             {
                 path:'/footer',
@@ -51,16 +51,27 @@ const router = createBrowserRouter([
             {
                 path:'/serviceDetails/:id',
                element :<PrivateRoute><ServicesDetails></ServicesDetails></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+                loader:({params})=>fetch(`https://y-ochre-five.vercel.app/services/${params.id}`)
+
+            },
+            {
+                path:'/serviceDetails',
+                element:<ServicesDetails></ServicesDetails>
 
             },
           
             {
                 path:'/myReviews',
                 element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
-                // element:<MyReviews></MyReviews>
+               
             },
-           
+            {
+                path:'/edit/:id',
+                element:<Edit></Edit>,
+                loader:({params})=>fetch(`https://y-ochre-five.vercel.app/review${params.id}`)
+                
+            },
+          
             {
                 path:'*',
                 element:<Error></Error>

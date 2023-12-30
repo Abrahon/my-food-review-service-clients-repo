@@ -8,9 +8,6 @@ const Error = () => {
             <h1 className='text-8xl font-bold text-orange-600 text-center mb-20'>404</h1>
 
            </div>
-          
-
-              
         </div>
     );
 };

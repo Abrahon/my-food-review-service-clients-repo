@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const ReviewRow = ({review, handleDelete, handleStatusUpdate}) => {
-    const {_id, serviceName, message,service,status} = review;
+const ReviewRow = ({review, handleDelete}) => {
+    const {_id, serviceName, message,service} = review;
+    
     const [myReviewsService, setMyReviewsService] = useState([])
 
-
-
     useEffect(()=>{
-        fetch(`http://localhost:5000/services/${service}`)
+        fetch(`https://y-ochre-five.vercel.app/services/${service}`)
         .then(res=>res.json())
         .then(data=>setMyReviewsService(data));
 
@@ -19,7 +18,7 @@ const ReviewRow = ({review, handleDelete, handleStatusUpdate}) => {
         <tr>
             <th>
                 <label>
-                    <button onClick={()=>handleDelete(_id)} className='btn btn-ghost'>X</button>
+                    <button onClick={()=>handleDelete(_id)} className='btn btn-error'>X</button>
                 </label>
             </th>
             <td>
@@ -29,7 +28,6 @@ const ReviewRow = ({review, handleDelete, handleStatusUpdate}) => {
                             {
                                 myReviewsService?.img &&
                              <img src={myReviewsService.img} alt="Avatar Tailwind CSS Component" />
-
                             }
                         </div>
                     </div>
@@ -42,13 +40,8 @@ const ReviewRow = ({review, handleDelete, handleStatusUpdate}) => {
                 {message}
             </td>
             <th>
-                <Link to='/login'>
-                <button
-                onClick={()=> handleStatusUpdate(_id)}
-                className="btn btn-ghost btn-xs">{status ? status: 'edit review'}
-                </button>
-                </Link>
-                
+               
+            <Link to={`/edit/${_id}`}> <button>Edit</button></Link>
             </th>
         </tr>
     );

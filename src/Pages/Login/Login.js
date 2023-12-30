@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 
@@ -28,9 +29,11 @@ const Login = () => {
 
             }
             console.log(currentUser);
+            toast.success('login successfully');
+
 
             //get jwt token
-            fetch('http://localhost:5000/jwt',{
+            fetch('https://y-ochre-five.vercel.app/jwt',{
               method: 'POST',
               headers: {
                 'content-type':'application/json'
@@ -56,9 +59,9 @@ const Login = () => {
 
     return (
         <div className="hero w-full my-20">
-        <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row  ">
+        <div className=" ">
           
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-8">
+          <div className="card flex-shrink-0 w-full shadow-2xl">
             <h1 className="text-5xl text-center font-bold">Login</h1>
       
             <form onSubmit={handleLogin}className="card-body">
@@ -83,9 +86,7 @@ const Login = () => {
             </form>
           </div>
         </div>
-        {/* <div className="spinner-border text-success" role="status">
-   <span className="visually-hidden">Loading...</span>
-</div> */}
+   
       </div>
     );
 };

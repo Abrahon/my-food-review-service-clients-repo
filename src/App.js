@@ -1,17 +1,20 @@
 
 import './App.css';
+
 import { RouterProvider } from 'react-router-dom';
 import router from './Router/Routes/Routes';
-import Header from './Pages/Shared/Header/Header';
+
+import { Toaster } from 'react-hot-toast';
+
 
 function App() {
   return (
-    <div className='p-5'>
+    <div className=''>
       <RouterProvider router={router}></RouterProvider>
+      <Toaster></Toaster>
      
     </div>
   );
 }
 
 export default App;
-// max-w-screen-lg mx-auto
